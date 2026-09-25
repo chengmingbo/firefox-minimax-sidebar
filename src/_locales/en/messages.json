@@ -1,0 +1,30 @@
+{
+  "extensionName": {
+    "message": "MiniMax Sidebar",
+    "description": "Name of the extension."
+  },
+  "extensionShortName": {
+    "message": "MiniMax",
+    "description": "Short name of the extension."
+  },
+  "extensionDescription": {
+    "message": "A Firefox sidebar for MiniMax-M3 by MiniMax. Chat, ask about the page or selection, summarize, and rewrite — all from the sidebar.",
+    "description": "Description of the extension."
+  },
+  "cmdToggleSidebar": {
+    "message": "Toggle MiniMax sidebar",
+    "description": "Keyboard shortcut to toggle the sidebar."
+  },
+  "cmdAskSelection": {
+    "message": "Ask MiniMax about the selection",
+    "description": "Keyboard shortcut to ask about the selected text."
+  },
+  "cmdSummarizePage": {
+    "message": "Summarize the page with MiniMax",
+    "description": "Keyboard shortcut to summarize the page."
+  },
+  "cmdNewChat": {
+    "message": "Start a new chat",
+    "description": "Keyboard shortcut to start a new chat."
+  }
+}

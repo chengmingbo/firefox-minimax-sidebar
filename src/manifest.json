@@ -1,0 +1,121 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "short_name": "__MSG_extensionShortName__",
+  "version": "0.1.0",
+  "version_name": "0.1.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "author": "chengmingbo",
+  "homepage_url": "https://github.com/chengmingbo/firefox-minimax-sidebar",
+
+  "icons": {
+    "16": "src/icons/icon-16.png",
+    "32": "src/icons/icon-32.png",
+    "48": "src/icons/icon-48.png",
+    "96": "src/icons/icon-96.png",
+    "128": "src/icons/icon-128.png"
+  },
+
+  "sidebar_action": {
+    "default_title": "__MSG_extensionName__",
+    "default_panel": "src/sidebar/sidebar.html",
+    "default_icon": {
+      "16": "src/icons/icon-16.png",
+      "32": "src/icons/icon-32.png",
+      "48": "src/icons/icon-48.png",
+      "96": "src/icons/icon-96.png"
+    }
+  },
+
+  "action": {
+    "default_title": "__MSG_extensionName__",
+    "default_icon": {
+      "16": "src/icons/icon-16.png",
+      "32": "src/icons/icon-32.png",
+      "48": "src/icons/icon-48.png"
+    }
+  },
+
+  "background": {
+    "scripts": ["src/background/background.js"],
+    "type": "module",
+    "persistent": false
+  },
+
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["src/sidebar/sidebar.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "tabs",
+    "scripting",
+    "clipboardWrite",
+    "clipboardRead",
+    "notifications"
+  ],
+
+  "host_permissions": [
+    "https://api.minimaxi.com/*",
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Alt+Shift+M",
+        "mac": "Alt+Shift+M"
+      },
+      "description": "__MSG_cmdToggleSidebar__"
+    },
+    "ask-selection": {
+      "suggested_key": {
+        "default": "Alt+Shift+S",
+        "mac": "Alt+Shift+S"
+      },
+      "description": "__MSG_cmdAskSelection__"
+    },
+    "summarize-page": {
+      "suggested_key": {
+        "default": "Alt+Shift+P",
+        "mac": "Alt+Shift+P"
+      },
+      "description": "__MSG_cmdSummarizePage__"
+    },
+    "new-chat": {
+      "suggested_key": {
+        "default": "Alt+Shift+N",
+        "mac": "Alt+Shift+N"
+      },
+      "description": "__MSG_cmdNewChat__"
+    }
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "firefox-minimax-sidebar@chengmingbo.github.io",
+      "strict_min_version": "115.0"
+    }
+  }
+}

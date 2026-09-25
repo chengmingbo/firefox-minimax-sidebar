@@ -1,0 +1,138 @@
+.mms-options {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px;
+  background: var(--mms-bg);
+}
+
+.mms-options-card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--mms-bg);
+  border: 1px solid var(--mms-border);
+  border-radius: var(--mms-radius-lg);
+  padding: 24px;
+  box-shadow: var(--mms-shadow);
+}
+
+.mms-options header h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+.mms-options header p {
+  margin: 0 0 16px;
+}
+
+.mms-muted {
+  color: var(--mms-text-muted);
+}
+
+fieldset {
+  border: 1px solid var(--mms-border);
+  border-radius: var(--mms-radius);
+  padding: 12px 14px 14px;
+  margin: 0 0 16px;
+}
+legend {
+  padding: 0 6px;
+  font-weight: 600;
+  color: var(--mms-text-muted);
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+label > span:first-child {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  border: 1px solid var(--mms-border);
+  background: var(--mms-bg);
+  color: var(--mms-text);
+  border-radius: var(--mms-radius);
+  padding: 6px 8px;
+  outline: none;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--mms-accent);
+}
+textarea {
+  resize: vertical;
+  min-height: 60px;
+  font-family: inherit;
+}
+
+.mms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 14px;
+}
+
+.mms-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mms-checkbox span {
+  margin-bottom: 0 !important;
+}
+
+.mms-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.mms-row input {
+  flex: 1;
+}
+
+.mms-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.mms-saved {
+  font-size: 12px;
+  color: var(--mms-text-muted);
+}
+
+.mms-advanced {
+  margin-top: 16px;
+  border-top: 1px dashed var(--mms-border);
+  padding-top: 12px;
+}
+.mms-advanced summary {
+  cursor: pointer;
+  color: var(--mms-text-muted);
+}
+.mms-test-output {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--mms-border);
+  border-radius: var(--mms-radius);
+  background: var(--mms-bg-elev);
+  font-family: var(--mms-mono);
+  font-size: 12px;
+  white-space: pre-wrap;
+  max-height: 200px;
+  overflow: auto;
+}
+.mms-test-output.mms-error {
+  border-color: var(--mms-danger);
+  color: var(--mms-danger);
+}

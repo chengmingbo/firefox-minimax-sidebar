@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MiniMax Sidebar — Settings</title>
+    <link rel="stylesheet" href="../styles/common.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body class="mms-options">
+    <main class="mms-options-card">
+      <header>
+        <h1>MiniMax Sidebar</h1>
+        <p class="mms-muted">Settings for the MiniMax-M3 sidebar.</p>
+      </header>
+
+      <form id="options-form" autocomplete="off">
+        <fieldset>
+          <legend>API</legend>
+
+          <label>
+            <span>API key</span>
+            <div class="mms-row">
+              <input
+                id="apiKey"
+                name="apiKey"
+                type="password"
+                placeholder="eyJ… or sk-…"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button type="button" id="toggle-key" class="mms-link-btn">Show</button>
+            </div>
+            <small class="mms-muted">
+              Get one from
+              <a href="https://platform.minimaxi.com/user-center/basic-information/interface-key" target="_blank" rel="noreferrer">MiniMax platform</a>.
+              Stored in <code>browser.storage.sync</code>, which Firefox syncs across signed-in devices.
+            </small>
+          </label>
+
+          <label>
+            <span>Base URL</span>
+            <input
+              id="baseUrl"
+              name="baseUrl"
+              type="url"
+              placeholder="https://api.minimaxi.com"
+              spellcheck="false"
+            />
+            <small class="mms-muted">Override only if you proxy MiniMax through a different host.</small>
+          </label>
+
+          <label>
+            <span>Model</span>
+            <input
+              id="model"
+              name="model"
+              type="text"
+              placeholder="MiniMax-M3"
+              list="model-suggestions"
+            />
+            <datalist id="model-suggestions">
+              <option value="MiniMax-M3"></option>
+              <option value="MiniMax-M2"></option>
+            </datalist>
+          </label>
+
+          <label>
+            <span>Network proxy (optional)</span>
+            <input
+              id="proxy"
+              name="proxy"
+              type="text"
+              placeholder="http://127.0.0.1:7890"
+              spellcheck="false"
+            />
+            <small class="mms-muted">
+              Used by the background worker for fetch. Leave blank for direct.
+            </small>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Model behavior</legend>
+
+          <div class="mms-grid">
+            <label>
+              <span>Temperature</span>
+              <input id="temperature" name="temperature" type="number" min="0" max="2" step="0.05" />
+            </label>
+            <label>
+              <span>Top P</span>
+              <input id="topP" name="topP" type="number" min="0" max="1" step="0.05" />
+            </label>
+            <label>
+              <span>Max tokens</span>
+              <input id="maxTokens" name="maxTokens" type="number" min="64" max="32768" step="64" />
+            </label>
+            <label class="mms-checkbox">
+              <input id="stream" name="stream" type="checkbox" />
+              <span>Stream responses</span>
+            </label>
+          </div>
+
+          <label>
+            <span>System prompt</span>
+            <textarea id="systemPrompt" name="systemPrompt" rows="4"></textarea>
+          </label>
+
+          <label>
+            <span>Standing instructions</span>
+            <textarea
+              id="standingInstructions"
+              name="standingInstructions"
+              rows="3"
+              placeholder="e.g. Always use British English. Reply in Chinese if the user writes in Chinese."
+            ></textarea>
+            <small class="mms-muted">
+              Appended to the system prompt on every request. Useful for tone, language, or formatting.
+            </small>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Page context</legend>
+
+          <div class="mms-grid">
+            <label>
+              <span>Max page chars</span>
+              <input id="pageContextMaxChars" name="pageContextMaxChars" type="number" min="1000" max="200000" step="500" />
+            </label>
+            <label>
+              <span>Max selection chars</span>
+              <input id="selectionMaxChars" name="selectionMaxChars" type="number" min="200" max="60000" step="100" />
+            </label>
+            <label class="mms-checkbox">
+              <input id="includePageOnAsk" name="includePageOnAsk" type="checkbox" />
+              <span>Always include active page when asking</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Appearance</legend>
+          <label>
+            <span>Theme</span>
+            <select id="theme" name="theme">
+              <option value="auto">Follow system</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <div class="mms-actions">
+          <button type="submit" class="mms-btn mms-btn-primary">Save</button>
+          <button type="button" id="reset" class="mms-btn mms-btn-ghost">Reset to defaults</button>
+          <span id="saved" class="mms-saved" aria-live="polite"></span>
+        </div>
+
+        <details class="mms-advanced">
+          <summary>Advanced</summary>
+          <button type="button" id="test-connection" class="mms-btn">Test connection</button>
+          <pre id="test-output" class="mms-test-output" hidden></pre>
+        </details>
+      </form>
+    </main>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

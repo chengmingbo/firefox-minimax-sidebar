@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MiniMax Sidebar</title>
+    <link rel="stylesheet" href="../styles/common.css" />
+    <link rel="stylesheet" href="sidebar.css" />
+  </head>
+  <body class="mms-root" data-theme="auto">
+    <header class="mms-header">
+      <button id="new-chat" class="mms-icon-btn" title="New chat (Alt+Shift+N)" aria-label="New chat">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button id="toggle-list" class="mms-icon-btn" title="Conversations" aria-label="Conversations">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <select id="model-picker" class="mms-select" title="Model" aria-label="Model"></select>
+      <div class="mms-header-spacer"></div>
+      <button id="open-options" class="mms-icon-btn" title="Settings" aria-label="Settings">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9 3l-2.1-.4a7 7 0 00-.7-1.7l1.3-1.7-2.1-2.1-1.7 1.3a7 7 0 00-1.7-.7L13.6 3h-3l-.4 2.1a7 7 0 00-1.7.7L6.8 4.5 4.7 6.6l1.3 1.7a7 7 0 00-.7 1.7L3 10.4v3l2.1.4a7 7 0 00.7 1.7l-1.3 1.7 2.1 2.1 1.7-1.3a7 7 0 001.7.7l.4 2.1h3l.4-2.1a7 7 0 001.7-.7l1.7 1.3 2.1-2.1-1.3-1.7a7 7 0 00.7-1.7L21 13.4v-3z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+      </button>
+    </header>
+
+    <aside id="conversation-list" class="mms-conv-list" hidden>
+      <div class="mms-conv-list-header">
+        <span>Conversations</span>
+        <button id="close-conv-list" class="mms-icon-btn" title="Close" aria-label="Close">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <ul id="conversation-items" class="mms-conv-items"></ul>
+      <div class="mms-conv-list-footer">
+        <button id="export-all" class="mms-link-btn">Export all</button>
+        <button id="clear-all" class="mms-link-btn mms-danger">Clear all</button>
+      </div>
+    </aside>
+
+    <main id="chat" class="mms-chat" aria-live="polite"></main>
+
+    <section id="page-context-bar" class="mms-context-bar" hidden>
+      <span class="mms-context-label">No page attached</span>
+      <button id="clear-context" class="mms-link-btn">Clear</button>
+    </section>
+
+    <footer class="mms-footer">
+      <div class="mms-quick-actions">
+        <button class="mms-chip" data-action="summarize-page">Summarize page</button>
+        <button class="mms-chip" data-action="explain-selection">Explain selection</button>
+        <button class="mms-chip" data-action="translate-selection">Translate selection</button>
+        <button class="mms-chip" data-action="attach-page">Attach page</button>
+      </div>
+      <div class="mms-input-row">
+        <textarea
+          id="prompt"
+          class="mms-input"
+          rows="3"
+          placeholder="Ask MiniMax… (Enter to send, Shift+Enter for newline)"
+          aria-label="Prompt"
+        ></textarea>
+        <div class="mms-input-actions">
+          <button id="stop" class="mms-btn mms-btn-ghost" hidden>Stop</button>
+          <button id="send" class="mms-btn mms-btn-primary">Send</button>
+        </div>
+      </div>
+      <div class="mms-status" id="status" role="status"></div>
+    </footer>
+
+    <script type="module" src="sidebar.js"></script>
+  </body>
+</html>
